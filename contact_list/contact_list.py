@@ -6,6 +6,7 @@ __credits__ = "Dilpreet Singh"
 
 from PySide6.QtWidgets import  QMainWindow, QLineEdit, QPushButton, QTableWidget, QLabel, QVBoxLayout, QWidget, QTableWidgetItem, QMessageBox
 from PySide6.QtCore import Slot
+
 class ContactList(QMainWindow):
     """Represents a window that provides the UI to manage contacts."""
 
@@ -53,6 +54,7 @@ class ContactList(QMainWindow):
 
     @Slot()
     def on_add_contact(self):
+        """Handles the action of adding a contact to the list."""
         name = self.contact_name_input.text().strip()
         phone = self.phone_input.text().strip()
         
@@ -69,6 +71,7 @@ class ContactList(QMainWindow):
 
     @Slot()
     def on_remove_contact(self):
+        """Handles the action of removing a selected contact from the list."""
         selected_row = self.contact_table.currentRow()
         if selected_row >= 0:
             reply = QMessageBox.question(self, "Remove Contact", "Are you sure you want to remove the selected contact?", 
