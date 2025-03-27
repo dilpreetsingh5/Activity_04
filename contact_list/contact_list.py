@@ -4,7 +4,7 @@ __author__ = "ACE Faculty"
 __version__ = "1.0.0"
 __credits__ = "Dilpreet Singh"
 
-from PySide6.QtWidgets import  QMainWindow, QLineEdit, QPushButton, QTableWidget, QLabel, QVBoxLayout, QWidget, QTableWidgetItem
+from PySide6.QtWidgets import  QMainWindow, QLineEdit, QPushButton, QTableWidget, QLabel, QVBoxLayout, QWidget, QTableWidgetItem, QMessageBox
 from PySide6.QtCore import Slot
 class ContactList(QMainWindow):
     """Represents a window that provides the UI to manage contacts."""
@@ -64,3 +64,5 @@ class ContactList(QMainWindow):
             self.status_label.setText(f"Added contact: {name}")
         else:
             self.status_label.setText("Please enter a contact name and phone number.")
+
+    
