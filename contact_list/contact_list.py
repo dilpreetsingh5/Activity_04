@@ -48,3 +48,19 @@ class ContactList(QMainWindow):
         container = QWidget()
         container.setLayout(layout)
         self.setCentralWidget(container)
+
+    @Slot()
+    def on_add_contact(self):
+        name = self.contact_name_input.text().strip()
+        phone = self.phone_input.text().strip()
+        
+        if len(name) > 0 and len(phone) > 0:
+            row_position = self.contact_table.rowCount()
+            self.contact_table.insertRow(row_position)
+            name_item = QTableWidgetItem(name)
+            phone_item = QTableWidgetItem(phone)
+            self.contact_table.setItem(row_position, 0, name_item)
+            self.contact_table.setItem(row_position, 1, phone_item)
+            self.status_label.setText(f"Added contact: {name}")
+        else:
+            self.status_label.setText("Please enter a contact name and phone number.")
